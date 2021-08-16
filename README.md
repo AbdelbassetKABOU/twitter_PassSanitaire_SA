@@ -2,9 +2,11 @@
 
 This is a Docker pipeline with ETL job (extract, transform, load) managed through Airflow.
 
-We are concerned by the sentiment analysis of tweets with hashtag related to the _pass_sanitaire_, a European Union digital *Covid* certificate introduced in France in June 2021, during the *Covid-19* pandemic [[1]](https://fr.wikipedia.org/wiki/Passe_sanitaire_fran%C3%A7ais).  
+The goal is to perform sentiment analysis on tweets with some hashtags related to the _pass_sanitaire_. This is an European Union digital *Covid* certificate introduced in France in June 2021 during the *Covid-19* pandemic [[1]](https://fr.wikipedia.org/wiki/Passe_sanitaire_fran%C3%A7ais).  
 
-The project was behind a huge company on twitter against the law. In this repo, we are concerned by the Sentiment Analysis of tweets related to this context. In particular, we are concerned by the followings hashtags :
+The project was behind a huge company on twitter against the law. In this repo, we are concerned by the Sentiment Analysis of tweets on this context. 
+
+In particular, we are concerned by the followings hashtags :
 
 - *#passsanitaire,*
 - *#passeportsanitaire,*
@@ -20,14 +22,15 @@ The project was behind a huge company on twitter against the law. In this repo, 
 
 ### Components
 
-The pipeline is composed of six (6) docker containers, as follows : 
+The pipeline is composed of six (6) docker containers, as follows: 
 
 - __pass_tweet_collector__ : Responsible of collecting the tweets with the previous hashtags,
 - __pass_webserver_1__ : A separate container for the airflow webserver, based on *apache/airflow* official image [[2]](https://hub.docker.com/r/apache/airflow) *(and not the puckel/docker-airflow one [[3]](https://hub.docker.com/r/puckel/docker-airflow))*,
 - __pass_scheduler_1__ : A separate docker container for the Airflow scheduler *(based on apache/airflow)*,
-- __pass_postgres_1__ : A docker container for the Postgres database. This is used both as a backend engine for Airflow for more performance compared to SQLite, the by default database engine.
+- __pass_postgres_1__ : A docker container for the Postgres database. This is used both as (1) a backend engine for Airflow (for more performance compared to SQLite, i.e. the by default database engine) and for (2) a backend database for *Metabase*.
 - __pass_mongodb_1__ : The docker container of the MongoDB database. This is used in the *extract* task as a database to store the downloaded tweets.
 - __pass_meta_1__ : A container for *Metabase* BI tool [[4]](https://www.metabase.com/docs/latest/users-guide/01-what-is-metabase.html) based on *metabase/metabase* docker-hub image [[5]](https://hub.docker.com/r/metabase/metabase),
+
 
 ![Alt text](images/dockerps.png?raw=true "Title")
 
