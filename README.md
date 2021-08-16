@@ -55,13 +55,17 @@ The code is partially based on Airflow course from *Datascientest.com* [8] and t
 
 ![Alt text](images/dag.png?raw=true "Title")
 
+
 ![Alt text](images/dag_2.png?raw=true "Title")
+
 
 ![Alt text](images/metabase_01.png?raw=true "Title")
 
-![Alt text](images/metabase_02.png?raw=true "Title")
 
-![Alt text](images/metabase_03.png?raw=true "Title")
+![Alt text](images/metabase_2.png?raw=true "Title")
+
+
+![Alt text](images/metabase_3.png?raw=true "Title")
 
 
 ## References
