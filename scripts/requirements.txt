@@ -1,0 +1,7 @@
+apache-airflow
+pandas
+pymongo
+apache_airflow_providers_imap
+SQLAlchemy
+vaderSentiment
+
